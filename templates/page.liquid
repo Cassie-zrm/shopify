@@ -1,0 +1,17 @@
+{% comment %}
+  <div>pages</div>
+  {{ page_title -}}
+  {{ current_page }}
+  {%- unless current_page == 1 %} - Page {{ current_page }}{% endunless %}
+  {% for scheme in settings.color_schemes %}
+    .color-{{ scheme.id }} { --color-background: {{ scheme.settings.background }}; --color-text:
+    {{ scheme.settings.text }}; }
+  {% endfor %}
+{% endcomment %}
+{% comment %}
+  {{ shop.name }}
+  <ul>
+    {{ linklists }}
+  </ul>
+{% endcomment %}
+sss
