@@ -1,6 +1,7 @@
 <head>
   {{ 'index.css' | asset_url | stylesheet_tag }}
 </head>
+
 <h1>{{ collections.frontpage.title }}</h1>
 {% for product in collections.frontpage.products %}
   <a href="{{ product.url }}">

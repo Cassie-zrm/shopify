@@ -4,6 +4,11 @@
   </head>
   <body>
     {% comment %} {% render 'header' %} {% endcomment %}
+    <ul>
+      {% for link in linklists['main-menu'].links %}
+        {{ link.title | link_to: link.url }}
+      {% endfor %}
+    </ul>
     {{ content_for_layout }}
   </body>
 </html>
