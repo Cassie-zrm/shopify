@@ -1,12 +1,13 @@
 <head>
   {{ 'index.css' | asset_url | stylesheet_tag }}
 </head>
-<h1>hello world1水水水水水水水水水水水水水111444</h1>
-<div>
-  <h2>{{ collections.frontpage.title }}</h2>
-  {% for product in collections.frontpage.products %}
-    {{ product.title | link_to: product.url }}
-    <img src="{{ product.featured_image | image_url }}" width="150" height="100">
-    {{ product.price }}
-  {% endfor %}
-</div>
+<h1>{{ collections.frontpage.title }}</h1>
+{% for product in collections.frontpage.products %}
+  <a href="{{ product.url }}">
+    <h3>{{ product.title }}</h3>
+    {% comment %} <img src="{{ product.featured_image | image_url }}"> {% endcomment %}
+    {% comment %} {{ product.featured_image | image_url | image_tag }} {% endcomment %}
+    <a>{{ product.price | money }}</a>
+  </a>
+{% endfor %}
+ww
