@@ -1,0 +1,22 @@
+<!-- sections/blog-list.liquid -->
+
+{% if blogs %}
+  <div class="blog-list">
+    <h1>All Blogs</h1>
+    {% for blog in blogs %}
+      <div class="blog">
+        <h2>{{ blog.title }}</h2>
+        <ul>
+          {% for article in blog.articles %}
+            <li>
+              {{ article.title }}
+              <p>{{ article.excerpt }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>No blogs found.</p>
+{% endif %}

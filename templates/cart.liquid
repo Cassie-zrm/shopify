@@ -6,7 +6,7 @@
     {% for item in cart.items %}
       <div>{{ item.title }}</div>
 
-      <img src="{{ item.image | imagr_url: width: 200 }}">
+      <img src="{{ item.image | image_url: width:200 }}">
 
       <div>price{{ item.final_line_price | money }}</div>
       <input value="{{ item.quantity }}" name="updates[]">

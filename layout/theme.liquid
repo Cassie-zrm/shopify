@@ -9,6 +9,12 @@
         {{ link.title | link_to: link.url }}
       {% endfor %}
     </ul>
+    <ul>
+      {% for link in linklists.blogs.links %}
+        {{ link.title | link_to: link.url }}
+      {% endfor %}
+    </ul>
+
     {{ content_for_layout }}
   </body>
 </html>

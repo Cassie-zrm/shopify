@@ -1,16 +1,16 @@
-{{ content_for_layout }}
+{% comment %} {% layout 'theme' %} {% endcomment %}
+
 <h1>All Collections</h1>
-我的是page啊
+
 {% if collections.size > 0 %}
   <ul>
     {% for collection in collections %}
       <li>
         <a href="{{ collection.url }}">{{ collection.title }}</a>
-        <p>{{ collection.description | truncate: 150 }}</p>
+        <p>{{ collection.description | truncate: 300 }}</p>
       </li>
     {% endfor %}
   </ul>
 {% else %}
   <p>No collections found.</p>
 {% endif %}
-<pre>{{ content_for_layout | json }}</pre>

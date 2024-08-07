@@ -1,0 +1,7 @@
+{% for product in collection.products %}
+  <a href="{{ product.url }}">
+    <div>{{ product.title }}</div>
+    <div>{{ product.price | money }}</div>
+    <div>{{ product.description }}</div>
+  </a>
+{% endfor %}

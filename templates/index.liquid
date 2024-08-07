@@ -1,9 +1,8 @@
 <head>
   {{ 'index.css' | asset_url | stylesheet_tag }}
 </head>
-
-<h1>{{ collections.frontpage.title }}</h1>
-{% for product in collections.frontpage.products %}
+<h1>{{ collections['automated-collection'].title }}</h1>
+{% for product in collections['automated-collection'].products %}
   <a href="{{ product.url }}">
     <h3>{{ product.title }}</h3>
     {% comment %} <img src="{{ product.featured_image | image_url }}"> {% endcomment %}
@@ -11,4 +10,3 @@
     <a>{{ product.price | money }}</a>
   </a>
 {% endfor %}
-ww
