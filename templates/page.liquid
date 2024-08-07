@@ -1,16 +1,4 @@
-{{ content_for_layout }}
-<h1>All Collections</h1>
-我的是page啊
-{% if collections.size > 0 %}
-  <ul>
-    {% for collection in collections %}
-      <li>
-        <a href="{{ collection.url }}">{{ collection.title }}</a>
-        <p>{{ collection.description | truncate: 150 }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No collections found.</p>
-{% endif %}
+<div>pages</div>
+{{ page.title }}
+{{ page.content }}
 <pre>{{ content_for_layout | json }}</pre>
