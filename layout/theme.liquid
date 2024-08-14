@@ -1,9 +1,10 @@
+{{'style.css' | asset_url | stylesheet_tag}}
 <html>
   <head>
     {{ content_for_header }}
   </head>
   <body>
-    {% comment %} {% render 'header' %} {% endcomment %}
+    {% render 'header' %}
     <ul>
       {% for link in linklists['main-menu'].links %}
         {{ link.title | link_to: link.url }}

@@ -8,6 +8,7 @@
       <li>
         <a href="{{ collection.url }}">{{ collection.title }}</a>
         <p>{{ collection.description | truncate: 300 }}</p>
+        <span> all_products_count: {{collection.all_products_count}}</span>
       </li>
     {% endfor %}
   </ul>

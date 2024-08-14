@@ -1,0 +1,13 @@
+{
+    // 页面的引入的 component 
+    "sections": {
+        // "demo-button":{
+        //     "type":"demo-button-test"
+        // },
+        "blog-list-test":{
+            "type":"test-blog"
+        }
+    },
+    // 最终的输出
+    "order": ["blog-list-test"]
+}

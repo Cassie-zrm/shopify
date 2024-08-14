@@ -1,0 +1,18 @@
+{% if search.performed %}
+
+{% comment %} <form action="{{ routes.search_url }}">
+    <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}">
+    <input type="submit" value="Search">
+</form> {% endcomment %}
+<p>results</p>
+{% for item in search.results %}
+<!-- item details -->
+<a href="{{item.url}}">
+    <h2>{{item.title}} | {{item.object_type}}</h2>
+    <p>{{ item.content | highlight: search.terms }}</p>
+</a>
+{% endfor %}
+
+{% else %}
+<p>try search for sth </p>
+{% endif %}

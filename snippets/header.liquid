@@ -1,1 +1,10 @@
-sss
+<header>
+  <h1>{{ shop.name }}</h1>
+  {% if settings.show_search %}
+  <form action="/search">
+    <input type="search" name="q">
+    <button type="submit">search</button>
+  </form>
+  {% endif %}
+
+</header>

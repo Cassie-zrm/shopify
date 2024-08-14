@@ -1,12 +1,17 @@
 <head>
   {{ 'index.css' | asset_url | stylesheet_tag }}
 </head>
+11
+{% section 'demo-Button' %}
+{% comment %} {%for collection in collections%}
+  {{collection.title}}
+  {%endfor%}
 <h1>{{ collections['automated-collection'].title }}</h1>
-{% for product in collections['automated-collection'].products %}
+{% for product in collections['Homepage'].products %}
   <a href="{{ product.url }}">
     <h3>{{ product.title }}</h3>
     {% comment %} <img src="{{ product.featured_image | image_url }}"> {% endcomment %}
     {% comment %} {{ product.featured_image | image_url | image_tag }} {% endcomment %}
     <a>{{ product.price | money }}</a>
   </a>
-{% endfor %}
+{% endfor %} {% endcomment %}
