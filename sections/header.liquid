@@ -1,9 +1,22 @@
 <header>
   {% comment %} <div class="shop-name">{{ shop.name }}</div> {% endcomment %}
+  {% schema %}
+{
+  "name": "menu",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+  {% endschema %}
 
   <div class="header">
     <div class="nav">
-      {% for item in linklists['main-menu'].links %}
+      {% for item in section.settings.menu.links %}
         <a class="nav-item" href="{{item.url}}">{{ item.title }}</a>
       {% endfor %}
     </div>

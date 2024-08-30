@@ -1,0 +1,50 @@
+{% schema %}
+{
+  "name": "banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bannerImg",
+      "label": "banner img"
+    },
+    {
+      "type": "text",
+      "id": "bannerAlt",
+      "label": "banner alt",
+      "default": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "bannerTitle",
+      "label": "banner title"
+    },
+    {
+      "type": "text",
+      "id": "bannerDesc",
+      "label": "banner desc",
+      "default": "Atypical leather goods"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="banner">
+  {% if section.settings.bannerImg %}
+    {{
+      section.settings.bannerImg
+      | image_url: width: '100%'
+      | image_tag: height: 'auto', alt: section.settings.bannerAlt, class: 'banner-img'
+    }}
+  {% else %}
+    <img
+      src="https://cdn.shopify.com/s/files/1/0890/3468/6764/files/pexels-photo-27438918_1.jpg?v=1724812813"
+      width="100%"
+      height="auto"
+      class="banner-img"
+      alt="{{ section.settings.bannerAlt }}"
+    >
+  {% endif %}
+  <h1>{{ section.settings.bannerTitle | default: shop.name }}</h1>
+  <p class="banner-desc">{{ section.settings.bannerDesc }}</p>
+  <div class="go-all-btn">SHOW ALL</div>
+</div>

@@ -1,21 +1,13 @@
-{{'style.css' | asset_url | stylesheet_tag}}
+<!doctype html>
 <html>
   <head>
     {{ content_for_header }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'header.css' | asset_url | stylesheet_tag }}
   </head>
-  <body>
-    {% render 'header' %}
-    <ul>
-      {% for link in linklists['main-menu'].links %}
-        {{ link.title | link_to: link.url }}
-      {% endfor %}
-    </ul>
-    <ul>
-      {% for link in linklists.blogs.links %}
-        {{ link.title | link_to: link.url }}
-      {% endfor %}
-    </ul>
 
+  <body>
+    {% section 'header' %}
     {{ content_for_layout }}
   </body>
 </html>

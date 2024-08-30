@@ -1,72 +1,73 @@
-{% schema  %} 
+{% schema %}
+{
+  "name": "Custom Button",
+  "blocks": [
     {
-      "name": "Custom Button",
+      "name": "input block",
+      "type": "input",
       "settings": [
         {
           "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "Click Me"
+          "label": "input label",
+          "id": "input_text",
+          "default": "input label"
         },
         {
-          "type": "color",
-          "id": "button_color",
-          "label": "Button Color",
-          "default": "#007bff"
+          "type": "text",
+          "label": "input placeholder",
+          "id": "input_placeholder",
+          "default": "placeholder"
         },
         {
-          "type": "color",
-          "id": "button_hover_color",
-          "label": "Button Hover Color",
-          "default": "#0056b3"
-        },
-        {
-          "type": "number",
-          "id": "button_padding_top",
-          "label": "Button Padding Top (px)",
-          "default": 10
-        },
-        {
-          "type": "number",
-          "id": "button_padding_bottom",
-          "label": "Button Padding Bottom (px)",
-          "default": 10
-        },
-        {
-          "type": "number",
-          "id": "button_padding_left",
-          "label": "Button Padding Left (px)",
-          "default": 20
-        },
-        {
-          "type": "number",
-          "id": "button_padding_right",
-          "label": "Button Padding Right (px)",
-          "default": 20
+          "type": "select",
+          "label": "input type",
+          "id": "input_type",
+          "options": [
+            {
+              "label": "text",
+              "value": "text"
+            },
+            {
+              "label": "password",
+              "value": "password"
+            }
+          ]
         }
       ],
-      "presets": [
-        {
-          "name": "Default",
-          "category": "Custom"
-        }
-      ]
-    } 
-{% endschema  %}
-   <div style="padding: {{ section.settings.button_padding_top }}px {{ section.settings.button_padding_right }}px {{ section.settings.button_padding_bottom }}px {{ section.settings.button_padding_left }}px;">
-     <button 
-       style="
-          background-color: {{ section.settings.button_color }};
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          padding: 10px 20px; /* Adjust if needed */
-        "
-        onmouseover="this.style.backgroundColor='{{ section.settings.button_hover_color }}';"
-        onmouseout="this.style.backgroundColor='{{ section.settings.button_color }}';"
-      >
-        {{ section.settings.button_text }}
-      </button>
-    </div>
-  
+      "limit": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+<div>
+  test
+  {% comment %}
+    <button
+      style="
+        background-color: {{ section.settings.button_color }};
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px 20px; /
+      "
+      onmouseover="this.style.backgroundColor='{{ section.settings.button_hover_color }}';"
+      onmouseout="this.style.backgroundColor='{{ section.settings.button_color }}';"
+    >
+      {{ section.settings.button_text }}
+    </button>
+  {% endcomment %}
+  {% for item in section.blocks %}
+    {%- case item.type -%}
+      {% when 'input' %}
+        {{ item.settings.input_text }}
+        <input type="{{ item.settings.input_type }}" placeholder="{{ item.settings.input_placeholder }}">
+    {% endcase %}
+  {% endfor %}
+</div>
