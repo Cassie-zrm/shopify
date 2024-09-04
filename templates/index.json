@@ -1,11 +1,11 @@
 {% schema %}
 {
-  "settings": [],
-  "blocks": [
-    {
-      "name": "banner"
-    }
-  ]
+ "settings": [
+  
+ ],
+//  "blocks": [{
+//   "name"
+//  }]
 }
 {% endschema %}
 <div class="content-box ">
