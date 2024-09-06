@@ -1,7 +1,15 @@
 {% schema %}
 {
-  "name": "index",
-  "settings": [],
+  "name": "index11",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "default": "text",
+      "id": "text",
+      "label": "text"
+    }
+  ],
   "presets": [
     {
       "name": "test"
@@ -9,4 +17,4 @@
   ]
 }
 {% endschema %}
-<div>test</div>
+<div>{{ section.settings.text }}</div>
